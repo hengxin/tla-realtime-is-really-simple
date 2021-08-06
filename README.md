@@ -3,3 +3,13 @@ TLA+ Specifications in the paper "Real Time is Really Simple" by Leslie Lamport
 
 ## State Graphs
 `dot -Tpng -Nstyle=filled -Npenwidth=5 -Epenwidth=8 -Ksfdp -Goverlap=prism -Goverlap_scaling=-10`
+
+## TODO
+### `UntimedFischer`
+- Visualization/Animation of the error traces
+
+### `Fisher1`
+- Definition Override: `Real`, `Infinity`
+- Interactively debug specs
+
+### `Fisher2`
