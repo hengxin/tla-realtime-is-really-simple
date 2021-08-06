@@ -943,53 +943,282 @@
  {\MODULE} Leader}\moduleRightDash\@xx{}%
 \@x{\makebox[0pt][r]{\scriptsize 2\hspace{1em}} {\EXTENDS} Reals ,\, Bags}%
 \@x{\makebox[0pt][r]{\scriptsize 3\hspace{1em}}}\midbar\@xx{}%
- \@x{\makebox[0pt][r]{\scriptsize 4\hspace{1em}} {\CONSTANTS} N ,\, Nbrs ( \_
- ) ,\, MsgDelay ,\, TODelay ,\, Period}%
+\@x{\makebox[0pt][r]{\scriptsize 4\hspace{1em}} {\CONSTANTS}}%
+\@x{\makebox[0pt][r]{\scriptsize 5\hspace{1em}}\@s{16.4} N ,\,\@s{34.14}}%
+\@y{\@s{0}%
+ number of nodes
+}%
+\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 6\hspace{1em}}\@s{16.4} Nbrs ( \_ )
+ ,\,\@s{9.77}}%
+\@y{\@s{0}%
+ \ensuremath{Nbrs(n)}: the neighbors of node \ensuremath{n
+}}%
+\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 7\hspace{1em}}\@s{16.4} Period
+ ,\,\@s{13.80}}%
+\@y{\@s{0}%
+ timer for nodes that believe themselves to be the leader
+}%
+\@xx{}%
+\@x{\makebox[0pt][r]{\scriptsize 8\hspace{1em}}\@s{16.4} MsgDelay ,\,}%
+\@y{\@s{0}%
+ A message is received at most \ensuremath{MsgDelay} seconds after it is sent
+}%
+\@xx{}%
+\@x{\makebox[0pt][r]{\scriptsize 9\hspace{1em}}\@s{16.4} TODelay\@s{8.94}}%
+\@y{\@s{0}%
+ Nodes can be awakened up to \ensuremath{TODelay} seconds after timeout
+}%
+\@xx{}%
 \@pvspace{8.0pt}%
- \@x{\makebox[0pt][r]{\scriptsize 6\hspace{1em}} Node \.{\defeq} 1 \.{\dotdot}
- N}%
-\@x{\makebox[0pt][r]{\scriptsize 7\hspace{1em}}}\midbar\@xx{}%
-\@x{\makebox[0pt][r]{\scriptsize 8\hspace{1em}} {\VARIABLES}}%
-\@x{\makebox[0pt][r]{\scriptsize 9\hspace{1em}}\@s{16.4} ldr ,\,\@s{15.59}}%
+ \@x{\makebox[0pt][r]{\scriptsize 11\hspace{1em}} Node \.{\defeq} 1
+ \.{\dotdot} N}%
+\@pvspace{8.0pt}%
+\@x{\makebox[0pt][r]{\scriptsize 13\hspace{1em}} {\ASSUME}}%
+ \@x{\makebox[0pt][r]{\scriptsize 14\hspace{1em}}\@s{16.4} \.{\land} N \.{\in}
+ Nat}%
+ \@x{\makebox[0pt][r]{\scriptsize 15\hspace{1em}}\@s{16.4} \.{\land} \A\, n
+ \.{\in} Node \.{:}}%
+ \@x{\makebox[0pt][r]{\scriptsize 16\hspace{1em}}\@s{31.61} \.{\land} Nbrs ( n
+ ) \.{\subseteq} Node}%
+ \@x{\makebox[0pt][r]{\scriptsize 17\hspace{1em}}\@s{31.61} \.{\land} \A\, m
+ \.{\in} Nbrs ( n ) \.{:} n \.{\in} Nbrs ( m )}%
+ \@x{\makebox[0pt][r]{\scriptsize 18\hspace{1em}}\@s{16.4} \.{\land} \{ Period
+ ,\, MsgDelay ,\, TODelay \} \.{\subseteq} \{ r \.{\in} Real \.{:} r \.{>} 0
+ \}}%
+\@x{\makebox[0pt][r]{\scriptsize 19\hspace{1em}}}\midbar\@xx{}%
+\@x{\makebox[0pt][r]{\scriptsize 20\hspace{1em}} {\VARIABLES}}%
+\@x{\makebox[0pt][r]{\scriptsize 21\hspace{1em}}\@s{16.4} ldr ,\,\@s{15.59}}%
 \@y{\@s{0}%
  \ensuremath{ldr[n]}: The node that \ensuremath{n} believes to be its leader.
 }%
 \@xx{}%
-\@x{\makebox[0pt][r]{\scriptsize 10\hspace{1em}}\@s{16.4} dist ,\,\@s{12.02}}%
+\@x{\makebox[0pt][r]{\scriptsize 22\hspace{1em}}\@s{16.4} dist ,\,\@s{12.02}}%
 \@y{\@s{0}%
  \ensuremath{dist[n]}: What \ensuremath{n} believes to be its distance to
  \ensuremath{ldr[n]}.
 }%
 \@xx{}%
-\@x{\makebox[0pt][r]{\scriptsize 11\hspace{1em}}\@s{16.4} timer ,\,\@s{4.10}}%
+\@x{\makebox[0pt][r]{\scriptsize 23\hspace{1em}}\@s{16.4} timer ,\,\@s{4.10}}%
 \@y{\@s{0}%
- A countdown timer for node n\mbox{'}s timeout action.
+ A countdown timer for node \ensuremath{n}\mbox{'}s timeout action.
 }%
 \@xx{}%
-\@x{\makebox[0pt][r]{\scriptsize 12\hspace{1em}}\@s{16.4} msgs ,\,\@s{8.2}}%
+\@x{\makebox[0pt][r]{\scriptsize 24\hspace{1em}}\@s{16.4} msgs ,\,\@s{8.2}}%
 \@y{\@s{0}%
- the messages in transit
+ the messages in transit; there may be duplicate messages
 }%
 \@xx{}%
-\@x{\makebox[0pt][r]{\scriptsize 13\hspace{1em}}\@s{16.4} now\@s{16.21}}%
+\@x{\makebox[0pt][r]{\scriptsize 25\hspace{1em}}\@s{16.4} now\@s{16.21}}%
 \@y{\@s{0}%
  the now timer
 }%
 \@xx{}%
-\@x{\makebox[0pt][r]{\scriptsize 14\hspace{1em}}}\bottombar\@xx{}%
+\@pvspace{8.0pt}%
+ \@x{\makebox[0pt][r]{\scriptsize 27\hspace{1em}} vars \.{\defeq} {\langle}
+ ldr ,\, dist ,\, timer ,\, msgs ,\, now {\rangle}}%
+\@pvspace{8.0pt}%
+ \@x{\makebox[0pt][r]{\scriptsize 29\hspace{1em}} Msg \.{\defeq} [
+ src\@s{4.50} \.{:} Node ,\,}%
+\@y{\@s{0}%
+ the sender
+}%
+\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 30\hspace{1em}}\@s{37.42} dest\@s{2.17}
+ \.{:} Node ,\,}%
+\@y{\@s{0}%
+ the destination
+}%
+\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 31\hspace{1em}}\@s{41.52} ldr\@s{3.18} \.{:}
+ Node ,\,}%
+\@y{\@s{0}%
+ the leader that originated the message
+}%
+\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 32\hspace{1em}}\@s{37.42} hops \.{:} Nat
+ ,\,\@s{5.68}}%
+\@y{\@s{0}%
+ the number of times the message has been forwarded
+}%
+\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 33\hspace{1em}}\@s{12.29} rcvTimer\@s{4.17}
+ \.{:} Real ]\@s{6.25}}%
+\@y{\@s{0}%
+ a countdown timer used to express the upper-bound constraint on
+ message-delivery time
+}%
+\@xx{}%
+\@x{\makebox[0pt][r]{\scriptsize 34\hspace{1em}}}\midbar\@xx{}%
+\@x{\makebox[0pt][r]{\scriptsize 35\hspace{1em}} TypeOK \.{\defeq}}%
+ \@x{\makebox[0pt][r]{\scriptsize 36\hspace{1em}}\@s{16.4} \.{\land}\@s{9.74}
+ ldr \.{\in} Node}%
+ \@x{\makebox[0pt][r]{\scriptsize 37\hspace{1em}}\@s{16.4} \.{\land}\@s{9.74}
+ dist \.{\in} Nat}%
+ \@x{\makebox[0pt][r]{\scriptsize 38\hspace{1em}}\@s{16.4} \.{\land}\@s{9.74}
+ timer \.{\in} Real}%
+ \@x{\makebox[0pt][r]{\scriptsize 39\hspace{1em}}\@s{16.4} \.{\land}\@s{9.74}
+ msgs \.{\in} SubBag ( SetToBag ( Msg ) )}%
+ \@x{\makebox[0pt][r]{\scriptsize 40\hspace{1em}}\@s{16.4} \.{\land}\@s{9.74}
+ now \.{\in} Real\@s{8.2}}%
+\@y{\@s{0}%
+ now is unbounded; commet it in model checking
+}%
+\@xx{}%
+\@x{\makebox[0pt][r]{\scriptsize 41\hspace{1em}}}\midbar\@xx{}%
+\@x{\makebox[0pt][r]{\scriptsize 42\hspace{1em}} Init \.{\defeq}}%
+ \@x{\makebox[0pt][r]{\scriptsize 43\hspace{1em}}\@s{16.4} \.{\land}
+ ldr\@s{11.49} \.{=} [ n \.{\in} Node \.{\mapsto} n ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 44\hspace{1em}}\@s{16.4} \.{\land}
+ dist\@s{7.92} \.{=} [ n \.{\in} Node \.{\mapsto} 0 ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 45\hspace{1em}}\@s{16.4} \.{\land} timer
+ \.{=} [ n \.{\in} Node \.{\mapsto} Period ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 46\hspace{1em}}\@s{16.4} \.{\land}
+ msgs\@s{4.1} \.{=} EmptyBag}%
+ \@x{\makebox[0pt][r]{\scriptsize 47\hspace{1em}}\@s{16.4} \.{\land}
+ now\@s{6.00} \.{=} 0}%
+\@x{\makebox[0pt][r]{\scriptsize 48\hspace{1em}}}\midbar\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 49\hspace{1em}} MsgsSent ( n ,\, S )
+ \.{\defeq}}%
+ \@x{\makebox[0pt][r]{\scriptsize 50\hspace{1em}}\@s{16.4} SetToBag ( [
+ src\@s{4.50} \.{:} \{ n \} ,\, dest \.{:} S ,\, ldr \.{:} \{ ldr \.{'} [ n ]
+ \} ,\,}%
+ \@x{\makebox[0pt][r]{\scriptsize 51\hspace{1em}}\@s{62.96} hops \.{:} \{ dist
+ \.{'} [ n ] \} ,\, rcvTimer \.{:} \{ MsgDelay \} ] )}%
+\@pvspace{8.0pt}%
+\@x{\makebox[0pt][r]{\scriptsize 53\hspace{1em}} TimeOut ( n ) \.{\defeq}}%
+ \@x{\makebox[0pt][r]{\scriptsize 54\hspace{1em}}\@s{16.4} \.{\land}\@s{12.79}
+ timer [ n ] \.{<} 0}%
+ \@x{\makebox[0pt][r]{\scriptsize 55\hspace{1em}}\@s{16.4} \.{\land}\@s{12.79}
+ ldr \.{'}\@s{11.49} \.{=} [ ldr {\EXCEPT} {\bang} [ n ] \.{=} n ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 56\hspace{1em}}\@s{16.4} \.{\land}\@s{12.79}
+ dist \.{'}\@s{7.92} \.{=} [ dist {\EXCEPT} {\bang} [ n ] \.{=} 0 ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 57\hspace{1em}}\@s{16.4} \.{\land}\@s{12.79}
+ timer \.{'} \.{=} [ timer {\EXCEPT} {\bang} [ n ] \.{=} Period ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 58\hspace{1em}}\@s{16.4} \.{\land}\@s{12.79}
+ msgs \.{'}\@s{2.68} \.{=} msgs \.{\oplus} MsgsSent ( n ,\, Nbrs ( n ) )}%
+ \@x{\makebox[0pt][r]{\scriptsize 59\hspace{1em}}\@s{16.4} \.{\land}\@s{12.79}
+ {\UNCHANGED} now}%
+\@pvspace{8.0pt}%
+\@x{\makebox[0pt][r]{\scriptsize 61\hspace{1em}} RcvMsg ( n ) \.{\defeq}}%
+ \@x{\makebox[0pt][r]{\scriptsize 62\hspace{1em}}\@s{16.4} \.{\land} \E\, m
+ \.{\in} BagToSet ( msgs ) \.{:}}%
+ \@x{\makebox[0pt][r]{\scriptsize 63\hspace{1em}}\@s{31.61} \.{\land} m . dest
+ \.{=} n}%
+ \@x{\makebox[0pt][r]{\scriptsize 64\hspace{1em}}\@s{31.61} \.{\land} {\IF}
+ \.{\lor} m . ldr \.{<} ldr [ n ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 65\hspace{1em}}\@s{54.87} \.{\lor} \.{\land}
+ m . ldr \.{=} ldr [ n ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 66\hspace{1em}}\@s{65.98} \.{\land} m . hops
+ \.{+} 1 \.{<} dist [ n ]}%
+\@y{\@s{0}%
+ \ensuremath{TODO}: ``\ensuremath{\.{\leq}}'' in
+ \ensuremath{Lamport}\mbox{'}s spec\.{?}
+}%
+\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 67\hspace{1em}}\@s{42.72} \.{\THEN}
+ \.{\land} ldr \.{'} \.{=} [ ldr {\EXCEPT} {\bang} [ n ] \.{=} m . ldr ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 68\hspace{1em}}\@s{74.03} \.{\land} dist
+ \.{'} \.{=} [ dist {\EXCEPT} {\bang} [ n ] \.{=} m . hops \.{+} 1 ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 69\hspace{1em}}\@s{74.03} \.{\land} timer
+ \.{'} \.{=} [ timer {\EXCEPT} {\bang} [ n ] \.{=}}%
+ \@x{\makebox[0pt][r]{\scriptsize 70\hspace{1em}}\@s{140.82} Period \.{+}
+ TODelay \.{+} dist \.{'} [ n ] \.{*} MsgDelay ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 71\hspace{1em}}\@s{74.03} \.{\land} msgs
+ \.{'} \.{=} ( msgs \.{\ominus} SetToBag ( \{ m \} ) )}%
+ \@x{\makebox[0pt][r]{\scriptsize 72\hspace{1em}}\@s{148.72} \.{\oplus}
+ MsgsSent ( n ,\, Nbrs ( n ) \.{\,\backslash\,} \{ m . src \} )}%
+ \@x{\makebox[0pt][r]{\scriptsize 73\hspace{1em}}\@s{42.72} \.{\ELSE}
+ \.{\land} msgs \.{'} \.{=} msgs \.{\ominus} SetToBag ( \{ m \} )}%
+ \@x{\makebox[0pt][r]{\scriptsize 74\hspace{1em}}\@s{74.03} \.{\land}
+ {\UNCHANGED} {\langle} ldr ,\, dist ,\, timer {\rangle}}%
+ \@x{\makebox[0pt][r]{\scriptsize 75\hspace{1em}}\@s{16.4} \.{\land}
+ {\UNCHANGED} now}%
+\@pvspace{8.0pt}%
+\@x{\makebox[0pt][r]{\scriptsize 77\hspace{1em}} Tick \.{\defeq}}%
+ \@x{\makebox[0pt][r]{\scriptsize 78\hspace{1em}}\@s{16.4} \E\, d \.{\in} Real
+ \.{:}}%
+ \@x{\makebox[0pt][r]{\scriptsize 79\hspace{1em}}\@s{27.72} \.{\land} d \.{>}
+ 0}%
+ \@x{\makebox[0pt][r]{\scriptsize 80\hspace{1em}}\@s{27.72} \.{\land} \A\,
+ n\@s{2.55} \.{\in} Node \.{:} timer [ n ] \.{+} TODelay \.{\geq} d}%
+ \@x{\makebox[0pt][r]{\scriptsize 81\hspace{1em}}\@s{27.72} \.{\land} \A\, m
+ \.{\in} BagToSet ( msgs ) \.{:} m . rcvTimder \.{\geq} d}%
+ \@x{\makebox[0pt][r]{\scriptsize 82\hspace{1em}}\@s{27.72} \.{\land} timer
+ \.{'} \.{=} [ n \.{\in} Node \.{\mapsto} timer [ n ] \.{-} d ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 83\hspace{1em}}\@s{27.72} \.{\land} msgs
+ \.{'} \.{=} \.{\LET} Updated ( m ) \.{\defeq} [ m {\EXCEPT} {\bang} .
+ rcvTimer \.{=} @ \.{-} d ]}%
+ \@x{\makebox[0pt][r]{\scriptsize 84\hspace{1em}}\@s{80.84} \.{\IN} BagOfAll (
+ Updated ,\, msgs )}%
+ \@x{\makebox[0pt][r]{\scriptsize 85\hspace{1em}}\@s{27.72} \.{\land} now
+ \.{'} \.{=} now \.{+} d}%
+ \@x{\makebox[0pt][r]{\scriptsize 86\hspace{1em}}\@s{27.72} \.{\land}
+ {\UNCHANGED} {\langle} ldr ,\, dist {\rangle}}%
+\@pvspace{8.0pt}%
+\@x{\makebox[0pt][r]{\scriptsize 88\hspace{1em}} Next \.{\defeq}}%
+ \@x{\makebox[0pt][r]{\scriptsize 89\hspace{1em}}\@s{16.4} \.{\lor} \E\, n
+ \.{\in} Node \.{:} TimeOut ( n ) \.{\lor} RcvMsg ( n )}%
+\@x{\makebox[0pt][r]{\scriptsize 90\hspace{1em}}\@s{16.4} \.{\lor} Tick}%
+\@x{\makebox[0pt][r]{\scriptsize 91\hspace{1em}}}\midbar\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 92\hspace{1em}} LSpec \.{\defeq} Init
+ \.{\land} {\Box} [ Next ]_{ vars}}%
+\@x{\makebox[0pt][r]{\scriptsize 93\hspace{1em}}}\midbar\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 94\hspace{1em}} Min ( S ) \.{\defeq}
+ {\CHOOSE} i \.{\in} S \.{:} \A\, j \.{\in} S \.{:} i \.{\leq} j}%
+\@pvspace{8.0pt}%
+\@x{\makebox[0pt][r]{\scriptsize 96\hspace{1em}} Ball ( i ,\, n ) \.{\defeq}}%
+\@y{\@s{0}%
+ The set of nodes with distance of at most \ensuremath{i} from node
+ \ensuremath{n}.
+}%
+\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 97\hspace{1em}}\@s{18.80} \.{\LET} B [ j
+ \.{\in} 0 \.{\dotdot} i ] \.{\defeq}}%
+ \@x{\makebox[0pt][r]{\scriptsize 98\hspace{1em}}\@s{43.30} {\IF} j \.{=} 0
+ \.{\THEN} \{ n \}}%
+ \@x{\makebox[0pt][r]{\scriptsize 99\hspace{1em}}\@s{78.30} \.{\ELSE} B [ j
+ \.{-} 1 ] \.{\cup} {\UNION} \{ Nbrs ( m ) \.{:} m \.{\in} B [ j \.{-} 1 ]
+ \}}%
+\@x{\makebox[0pt][r]{\scriptsize 100\hspace{1em}}\@s{22.90} \.{\IN} B [ i ]}%
+\@pvspace{8.0pt}%
+ \@x{\makebox[0pt][r]{\scriptsize 102\hspace{1em}} Dist ( m ,\, n )
+ \.{\defeq}}%
+\@y{\@s{0}%
+ The distance between nodes \ensuremath{m} and \ensuremath{n}, if it is
+ finite.
+}%
+\@xx{}%
+ \@x{\makebox[0pt][r]{\scriptsize 103\hspace{1em}}\@s{18.97} Min ( \{ i
+ \.{\in} 0 \.{\dotdot} N \.{:} m \.{\in} Ball ( i ,\, n ) \} )}%
+\@x{\makebox[0pt][r]{\scriptsize 104\hspace{1em}}}\midbar\@xx{}%
+\@x{\makebox[0pt][r]{\scriptsize 105\hspace{1em}} Correctness \.{\defeq}}%
+ \@x{\makebox[0pt][r]{\scriptsize 106\hspace{1em}}\@s{16.4} \.{\LET} Ldr ( n )
+ \.{\defeq} Min ( Ball ( N ,\, n ) )}%
+ \@x{\makebox[0pt][r]{\scriptsize 107\hspace{1em}}\@s{20.5} \.{\IN} \A\, n
+ \.{\in} Node \.{:}}%
+ \@x{\makebox[0pt][r]{\scriptsize 108\hspace{1em}}\@s{52.22} ( now \.{>}
+ Period \.{+} TODelay \.{+} Dist ( n ,\, Ldr ( n ) \.{*} MsgDelay )}%
+ \@x{\makebox[0pt][r]{\scriptsize 109\hspace{1em}}\@s{68.41} \.{\implies} ldr
+ [ n ] \.{=} Ldr ( n ) )}%
+\@pvspace{8.0pt}%
+ \@x{\makebox[0pt][r]{\scriptsize 111\hspace{1em}} {\THEOREM} LSpec
+ \.{\implies} {\Box} Correctness}%
+\@x{\makebox[0pt][r]{\scriptsize 112\hspace{1em}}}\bottombar\@xx{}%
 \setboolean{shading}{false}
 \begin{lcom}{0}%
 \begin{cpar}{0}{F}{F}{0}{0}{}%
-\ensuremath{\.{\,\backslash\,}}* Modification History
+\ensuremath{\.{\,\backslash\,}\.{*}} Modification History
 \end{cpar}%
 \begin{cpar}{0}{F}{F}{0}{0}{}%
- \ensuremath{\.{\,\backslash\,}}* Last modified \ensuremath{Fri}
- \ensuremath{Aug} 06 12:00:28 \ensuremath{CST} 2021 by \ensuremath{hengxin
+ \ensuremath{\.{\,\backslash\,}\.{*}} Last modified \ensuremath{Fri}
+ \ensuremath{Aug} 06 14:08:46 \ensuremath{CST} 2021 by \ensuremath{hengxin
 }%
 \end{cpar}%
 \begin{cpar}{0}{F}{F}{0}{0}{}%
- \ensuremath{\.{\,\backslash\,}}* Created \ensuremath{Fri} \ensuremath{Aug} 06
- 11:55:18 \ensuremath{CST} 2021 by \ensuremath{hengxin
+ \ensuremath{\.{\,\backslash\,}\.{*}} Created \ensuremath{Fri}
+ \ensuremath{Aug} 06 11:55:18 \ensuremath{CST} 2021 by \ensuremath{hengxin
 }%
 \end{cpar}%
 \end{lcom}%
