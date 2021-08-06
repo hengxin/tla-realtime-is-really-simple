@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.lamport.tla.toolbox.tool.tlc.modelCheck">
+    <stringAttribute key="configurationName" value="TypeOK"/>
+    <intAttribute key="distributedFPSetCount" value="0"/>
+    <stringAttribute key="distributedNetworkInterface" value="172.28.206.127"/>
+    <intAttribute key="distributedNodesCount" value="1"/>
+    <stringAttribute key="distributedTLC" value="off"/>
+    <intAttribute key="maxHeapSize" value="50"/>
+    <stringAttribute key="modelBehaviorInit" value=""/>
+    <stringAttribute key="modelBehaviorNext" value=""/>
+    <stringAttribute key="modelBehaviorSpec" value=""/>
+    <intAttribute key="modelBehaviorSpecType" value="2"/>
+    <stringAttribute key="modelBehaviorVars" value="msgs, now, ldr, timer, dist"/>
+    <stringAttribute key="modelComments" value=""/>
+    <booleanAttribute key="modelCorrectnessCheckDeadlock" value="true"/>
+    <listAttribute key="modelCorrectnessInvariants"/>
+    <listAttribute key="modelCorrectnessProperties"/>
+    <listAttribute key="modelParameterConstants">
+        <listEntry value="N;;3;0;0"/>
+        <listEntry value="Period;;2;0;0"/>
+        <listEntry value="MsgDelay;;2;0;0"/>
+        <listEntry value="TODelay;;2;0;0"/>
+        <listEntry value="Nbrs;n:;Node \ {n};0;0"/>
+    </listAttribute>
+    <intAttribute key="modelVersion" value="20191005"/>
+    <intAttribute key="numberOfWorkers" value="4"/>
+    <stringAttribute key="result.mail.address" value=""/>
+    <stringAttribute key="specName" value="Leader"/>
+    <stringAttribute key="tlcResourcesProfile" value="local custom"/>
+</launchConfiguration>
