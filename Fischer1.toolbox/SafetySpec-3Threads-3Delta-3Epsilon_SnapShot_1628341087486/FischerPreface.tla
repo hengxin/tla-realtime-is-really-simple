@@ -47,5 +47,5 @@ MutualExclusion ==
   \A t1, t2 \in Thread: (t1 # t2) => ~At(t1, "cs") \/ ~At(t2, "cs")
 =============================================================================
 \* Modification History
-\* Last modified Fri Aug 06 10:20:52 CST 2021 by hengxin
+\* Last modified Fri Aug 06 11:19:13 CST 2021 by hengxin
 \* Created Wed Aug 04 15:47:49 CST 2021 by hengxin

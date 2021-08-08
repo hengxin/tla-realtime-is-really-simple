@@ -43,7 +43,8 @@ StmtD(t) ==
 Tick ==
     \E d \in Real:
         /\ d > 0
-        /\ \A t \in Thread: ubTimer[t] > d
+        /\ \A t \in Thread :
+            ubTimer[t] # Infinity => ubTimer[t] > d
         /\ now' = now + d   \* Where is now used in the spec?
         /\ ubTimer' = [t \in Thread |->
                         IF ubTimer[t] = Infinity THEN Infinity
@@ -76,5 +77,5 @@ Progress ==
 THEOREM FSpec1 => Progress        
 =============================================================================
 \* Modification History
-\* Last modified Fri Aug 06 10:17:23 CST 2021 by hengxin
+\* Last modified Fri Aug 06 10:26:36 CST 2021 by hengxin
 \* Created Wed Aug 04 16:13:33 CST 2021 by hengxin

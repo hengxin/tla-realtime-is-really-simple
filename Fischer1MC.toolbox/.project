@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Fischer1MC</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>toolbox.builder.TLAParserBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>toolbox.natures.TLANature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>Fischer1MC.tla</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Fischer1MC.tla</locationURI>
+		</link>
+		<link>
+			<name>FischerPreface.tla</name>
+			<type>1</type>
+			<location>/home/hengxin/Documents/git-projects/tlaplus/tla-realtime-is-really-simple/FischerPreface.tla</location>
+		</link>
+		<link>
+			<name>FischerPrefaceMC.tla</name>
+			<type>1</type>
+			<location>/home/hengxin/Documents/git-projects/tlaplus/tla-realtime-is-really-simple/FischerPrefaceMC.tla</location>
+		</link>
+	</linkedResources>
+</projectDescription>

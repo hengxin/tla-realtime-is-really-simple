@@ -1,13 +1,19 @@
---------------------------- MODULE FischerPreface ---------------------------
-EXTENDS Reals
+-------------------------- MODULE FischerPrefaceMC --------------------------
+(*
+FischerPreface modified to be model checked.
+- Reals: replaced with Naturals
+- Real: replaced with Nat
+- Infinity: adding a CONSTANT Infinity (a model value)
+*)
+EXTENDS Naturals
 
 Max(a, b) == IF a >= b THEN a ELSE b
 -----------------------------------------------------------------------------
-CONSTANTS  Thread, Delta, Epsilon
+CONSTANTS Thread, Delta, Epsilon, Infinity
 
 ASSUME
-    /\ Delta \in Real
-    /\ Epsilon \in Real
+    /\ Delta \in Nat
+    /\ Epsilon \in Nat
     /\ 0 < Delta
     /\ Delta <= Epsilon
 
@@ -20,9 +26,9 @@ vars == <<x, pc, ubTimer, lbTimer, now, counter>>
 TypeOK ==
     /\ x \in Thread \cup {NotAThread}
     /\ pc \in [Thread -> {"ncs", "a", "b", "c", "cs", "d"}]
-    /\ ubTimer \in [Thread -> Real \cup {Infinity}]
-    /\ lbTimer \in [Thread -> Real \cup {Infinity}]
-\*    /\ now \in Real   \* now is unbounded
+    /\ ubTimer \in [Thread -> Nat \cup {Infinity}]
+    /\ lbTimer \in [Thread -> Nat \cup {Infinity}]
+\*    /\ now \in Nat   \* now is unbounded
     /\ counter \in [Thread -> Nat]
 -----------------------------------------------------------------------------
 Init ==
@@ -47,5 +53,5 @@ MutualExclusion ==
   \A t1, t2 \in Thread: (t1 # t2) => ~At(t1, "cs") \/ ~At(t2, "cs")
 =============================================================================
 \* Modification History
-\* Last modified Fri Aug 06 10:20:52 CST 2021 by hengxin
-\* Created Wed Aug 04 15:47:49 CST 2021 by hengxin
+\* Last modified Sat Aug 07 17:09:34 CST 2021 by hengxin
+\* Created Sat Aug 07 15:53:10 CST 2021 by hengxin
